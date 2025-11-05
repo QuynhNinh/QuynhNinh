@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuynhNinhShop - Trang chủ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --pink-color: #f8c1d0;
+      --light-pink: #fff5f8;
+      --dark-pink: #e55a8a;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+    }
+    
+    /* Navbar */
+    .navbar-pink {
+      background-color: var(--pink-color);
+    }
+    
+    .navbar-pink .navbar-nav .nav-link {
+      color: white !important;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+    
+    .navbar-pink .navbar-nav .nav-link.active,
+    .navbar-pink .navbar-nav .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .cart-btn {
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    
+    .icon-link {
+      color: white;
+      font-size: 1.2rem;
+    }
+    
+    /* Logo styles */
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-image {
+      height: 40px;
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+    
+    .logo-image:hover {
+      transform: scale(1.05);
+    }
+    
+    .brand-name {
+      color: white;
+      font-size: 1.3rem;
+      margin-left: 10px;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #ff9ebb 0%, #ff6b9d 100%);
+      color: white;
+      padding: 40px 0;
+    }
+    
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+    
+    /* Banner Image Style */
+    .hero-banner {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      border: 3px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Buttons */
+    .btn-pink {
+      background-color: var(--pink-color);
+      border-color: var(--pink-color);
+      color: white;
+      border-radius: 25px;
+      padding: 10px 25px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    .btn-pink:hover {
+      background-color: var(--dark-pink);
+      border-color: var(--dark-pink);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-outline-light {
+      border-radius: 20px;
+    }
+    
+    .btn-outline-pink {
+      color: var(--pink-color);
+      border-color: var(--pink-color);
+      border-radius: 25px;
+      padding: 10px 25px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    .btn-outline-pink:hover {
+      background-color: var(--pink-color);
+      color: white;
+    }
+    
+    /* Featured Products Section */
+    .section-title {
+      color: var(--pink-color);
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .product-card {
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin-bottom: 1.5rem;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+    
+    .product-img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+    
+    .product-price {
+      color: var(--pink-color);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    
+    .product-name {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Features Section */
+    .features-section {
+      background-color: var(--light-pink);
+      padding: 50px 0;
+    }
+    
+    .feature-item {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--pink-color);
+      margin-bottom: 1rem;
+    }
+    
+    /* Footer */
+    .footer-pink {
+      background-color: var(--light-pink);
+    }
+    
+    .social-links a {
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-3px);
+    }
+    
+    /* Modal */
+    .text-pink {
+      color: var(--pink-color) !important;
+    }
+    
+    .nav-pills .nav-link.active {
+      background-color: var(--pink-color);
+    }
+    
+    .nav-pills .nav-link {
+      color: #555;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      
+      .hero-banner {
+        height: 220px;
+        margin-top: 20px;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .logo-image {
+        height: 35px;
+      }
+      
+      .brand-name {
+        font-size: 1.1rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero-banner {
+        height: 180px;
+      }
+      
+      .hero-title {
+        font-size: 1.6rem;
+      }
+      
+      .hero-section {
+        padding: 30px 0;
+      }
+      
+      .logo-image {
+        height: 30px;
+      }
+      
+      .brand-name {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <nav class="navbar navbar-expand-lg navbar-pink sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <!-- Logo -->
+        <img src="images/Logo.png" alt="QuynhNinhShop Logo" class="logo-image">
+        <!-- Tên thương hiệu -->
+        <span class="brand-name">QuynhNinhShop</span>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Trang chủ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="san-pham.html">Sản phẩm</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Liên hệ</a>
+          </li>
+        </ul>
+        
+        <div class="d-flex align-items-center">
+          <button class="btn btn-outline-light btn-sm me-3" data-bs-toggle="modal" data-bs-target="#authModal">
+            <i class="fas fa-user me-1"></i>Tài khoản
+          </button>
+          
+          <a href="cart.html" class="btn btn-light cart-btn position-relative">
+            <i class="fas fa-shopping-bag"></i> Giỏ hàng
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+              0
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="hero-title">Chào mừng đến với QuynhNinhShop 💖</h1>
+          <p class="hero-subtitle">Khám phá bộ sưu tập mới nhất dành riêng cho bạn! Thời trang trẻ trung, năng động và cực kỳ nữ tính.</p>
+          <a href="san-pham.html" class="btn btn-pink btn-lg">
+            <i class="fas fa-shopping-bag me-2"></i>Mua ngay!
+          </a>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img src="images/banner.jpg" 
+          alt="QuynhNinhShop Banner" class="hero-banner">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="section-title">Sản Phẩm Nổi Bật</h2>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="product-card">
+            <img src="https://pos.nvncdn.com/4ef0bf-108661/ps/20250301_YOD0GJ9YgV.jpeg?v=1740762329" class="product-img" alt="Đầm cổ U nhỏ">
+            <div class="card-body">
+              <h5 class="product-name">Đầm cổ U nhỏ phối sơ mi</h5>
+              <p class="product-price">795,000đ</p>
+              <button class="btn btn-pink w-100 btn-add-to-cart" data-name="Đầm cổ U nhỏ phối sơ mi" data-price="795000" data-image="https://pos.nvncdn.com/4ef0bf-108661/ps/20250301_YOD0GJ9YgV.jpeg?v=1740762329">
+                Mua ngay
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-card">
+            <img src="https://pos.nvncdn.com/4ef0bf-108661/ps/Dam-co-tron-phoi-ao-roi-chan-do.jpg?v=1759480055" class="product-img" alt="Đầm cổ dày vắt">
+            <div class="card-body">
+              <h5 class="product-name">Đầm cổ dày vắt, chân xếp ly</h5>
+              <p class="product-price">795,000đ</p>
+              <button class="btn btn-pink w-100 btn-add-to-cart" data-name="Đầm cổ dày vắt, chân xếp ly" data-price="795000" data-image="https://pos.nvncdn.com/4ef0bf-108661/ps/Dam-co-tron-phoi-ao-roi-chan-do.jpg?v=1759480055">
+                Mua ngay
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-card">
+            <img src="https://dongphuchaianh.vn/wp-content/uploads/2021/12/ao-so-mi-nu-form-rong-trang.jpg" class="product-img" alt="Áo sơ mi nữ">
+            <div class="card-body">
+              <h5 class="product-name">Áo sơ mi nữ form rộng</h5>
+              <p class="product-price">350,000đ</p>
+              <button class="btn btn-pink w-100 btn-add-to-cart" data-name="Áo sơ mi nữ form rộng" data-price="350000" data-image="https://dongphuchaianh.vn/wp-content/uploads/2021/12/ao-so-mi-nu-form-rong-trang.jpg">
+                Mua ngay
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-card">
+            <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkq22hoydm962e" class="product-img" alt="Quần jeans">
+            <div class="card-body">
+              <h5 class="product-name">Quần jeans ống rộng</h5>
+              <p class="product-price">420,000đ</p>
+              <button class="btn btn-pink w-100 btn-add-to-cart" data-name="Quần jeans ống rộng" data-price="420000" data-image="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkq22hoydm962e">
+                Mua ngay
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="san-pham.html" class="btn btn-outline-pink">Xem tất cả sản phẩm</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-pink py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="text-pink fw-bold">QuynhNinhShop</h5>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="text-pink fw-bold">Liên kết nhanh</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-decoration-none text-dark">Trang chủ</a></li>
+            <li><a href="san-pham.html" class="text-decoration-none text-dark">Sản phẩm</a></li>
+            <li><a href="contact.html" class="text-decoration-none text-dark">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-pink fw-bold">Thông tin liên hệ</h5>
+          <p><i class="fas fa-map-marker-alt me-2 text-pink"></i>Thanh Xuân, Hà Nội</p>
+          <p><i class="fas fa-phone me-2 text-pink"></i> 0336118717</p>
+          <p><i class="fas fa-envelope me-2 text-pink"></i> contact@quynhninhshop.com</p>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 QuynhNinhShop. Tất cả quyền được bảo lưu.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL ĐĂNG NHẬP/ĐĂNG KÝ -->
+  <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="authModalLabel">Chào mừng đến QuynhNinhShop 💖</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-pills nav-justified mb-4" id="authTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="login-tab" data-bs-toggle="pill" data-bs-target="#login" type="button" role="tab">
+                <i class="fas fa-sign-in-alt me-2"></i>Đăng nhập
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="register-tab" data-bs-toggle="pill" data-bs-target="#register" type="button" role="tab">
+                <i class="fas fa-user-plus me-2"></i>Đăng ký
+              </button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="authTabContent">
+            <!-- ĐĂNG NHẬP -->
+            <div class="tab-pane fade show active" id="login" role="tabpanel">
+              <form id="loginForm">
+                <div class="mb-3">
+                  <label for="loginEmail" class="form-label">Email hoặc Số điện thoại</label>
+                  <input type="text" class="form-control" id="loginEmail" placeholder="Nhập email hoặc số điện thoại" required>
+                </div>
+                <div class="mb-3">
+                  <label for="loginPassword" class="form-label">Mật khẩu</label>
+                  <input type="password" class="form-control" id="loginPassword" placeholder="Nhập mật khẩu" required>
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="rememberMe">
+                  <label class="form-check-label" for="rememberMe">Ghi nhớ đăng nhập</label>
+                </div>
+                <button type="submit" class="btn btn-pink w-100">
+                  <i class="fas fa-sign-in-alt me-2"></i>Đăng nhập
+                </button>
+              </form>
+              <div class="text-center mt-3">
+                <a href="#" class="text-muted">Quên mật khẩu?</a>
+              </div>
+            </div>
+
+            <!-- ĐĂNG KÝ -->
+            <div class="tab-pane fade" id="register" role="tabpanel">
+              <form id="registerForm">
+                <div class="mb-3">
+                  <label for="registerName" class="form-label">Họ và tên</label>
+                  <input type="text" class="form-control" id="registerName" placeholder="Nhập họ tên của bạn" required>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="registerEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="registerEmail" placeholder="Nhập email" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="registerPhone" class="form-label">Số điện thoại</label>
+                    <input type="tel" class="form-control" id="registerPhone" placeholder="Nhập số điện thoại" required>
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="registerPassword" class="form-label">Mật khẩu</label>
+                  <input type="password" class="form-control" id="registerPassword" placeholder="Tạo mật khẩu (ít nhất 6 ký tự)" required>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="registerConfirmPassword" class="form-label">Xác nhận mật khẩu</label>
+                  <input type="password" class="form-control" id="registerConfirmPassword" placeholder="Nhập lại mật khẩu" required>
+                </div>
+                
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                  <label class="form-check-label" for="agreeTerms">
+                    Tôi đồng ý với <a href="#" class="text-pink">điều khoản dịch vụ</a>
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-pink w-100">
+                  <i class="fas fa-user-plus me-2"></i>Đăng ký tài khoản
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Xử lý đăng nhập/đăng ký
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Đăng nhập thành công!');
+    });
+    
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Đăng ký thành công!');
+    });
+
+    // Xử lý thêm vào giỏ hàng
+    document.querySelectorAll('.btn-add-to-cart').forEach(button => {
+      button.addEventListener('click', function() {
+        const productName = this.getAttribute('data-name');
+        const productPrice = parseInt(this.getAttribute('data-price'));
+        const productImage = this.getAttribute('data-image');
+        
+        // Tạo ID sản phẩm đơn giản
+        const productId = Date.now();
+        
+        // Lấy giỏ hàng hiện tại từ localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+        const existingItem = cart.find(item => item.name === productName);
+        
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          // Thêm sản phẩm mới vào giỏ hàng
+          cart.push({
+            id: productId,
+            name: productName,
+            price: productPrice,
+            image: productImage,
+            quantity: 1
+          });
+        }
+        
+        // Lưu giỏ hàng vào localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        // Cập nhật số lượng giỏ hàng
+        updateCartCount();
+        
+        // Hiển thị thông báo
+        alert(`Đã thêm "${productName}" vào giỏ hàng!`);
+        
+        // Chuyển hướng đến trang giỏ hàng
+        window.location.href = 'cart.html';
+      });
+    });
+
+    // Cập nhật số lượng giỏ hàng
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+      document.getElementById('cart-count').textContent = totalItems;
+    }
+    
+    // Cập nhật khi trang được tải
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCartCount();
+    });
+  </script>
+</body>
+</html>

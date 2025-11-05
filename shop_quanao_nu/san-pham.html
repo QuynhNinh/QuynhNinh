@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuynhNinhShop - Sản phẩm</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --pink-color: #f8c1d0;
+      --light-pink: #fff5f8;
+      --dark-pink: #e55a8a;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+    }
+    
+    /* Navbar */
+    .navbar-pink {
+      background-color: var(--pink-color);
+    }
+    
+    .navbar-pink .navbar-nav .nav-link {
+      color: white !important;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+    
+    .navbar-pink .navbar-nav .nav-link.active,
+    .navbar-pink .navbar-nav .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .cart-btn {
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    
+    .icon-link {
+      color: white;
+      font-size: 1.2rem;
+    }
+    
+    /* Logo styles */
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-image {
+      height: 40px;
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+    
+    .logo-image:hover {
+      transform: scale(1.05);
+    }
+    
+    .brand-name {
+      color: white;
+      font-size: 1.3rem;
+      margin-left: 10px;
+    }
+    
+    /* Categories */
+    .categories {
+      background-color: white;
+      padding: 15px 0;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .categories ul {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .categories li {
+      margin: 0 10px;
+    }
+    
+    .categories a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+    
+    .categories a:hover, .categories a.active {
+      background-color: var(--pink-color);
+      color: white;
+    }
+    
+    /* Section Title */
+    .section-title {
+      color: var(--pink-color);
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    /* Product Card */
+    .product-card {
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin-bottom: 1.5rem;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+    
+    .product-img {
+      height: 300px;
+      object-fit: cover;
+      width: 100%;
+    }
+    
+    .product-price {
+      color: var(--pink-color);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    
+    .product-name {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.5rem;
+      height: 50px;
+      overflow: hidden;
+    }
+    
+    /* Buttons */
+    .btn-pink {
+      background-color: var(--pink-color);
+      border-color: var(--pink-color);
+      color: white;
+      border-radius: 25px;
+      padding: 10px 25px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    .btn-pink:hover {
+      background-color: var(--dark-pink);
+      border-color: var(--dark-pink);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-outline-pink {
+      color: var(--pink-color);
+      border-color: var(--pink-color);
+      border-radius: 25px;
+      padding: 10px 25px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    .btn-outline-pink:hover {
+      background-color: var(--pink-color);
+      color: white;
+    }
+    
+    /* Footer */
+    .footer-pink {
+      background-color: var(--light-pink);
+    }
+    
+    .social-links a {
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-3px);
+    }
+    
+    .text-pink {
+      color: var(--pink-color) !important;
+    }
+    
+    /* Modal */
+    .nav-pills .nav-link.active {
+      background-color: var(--pink-color);
+    }
+    
+    .nav-pills .nav-link {
+      color: #555;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .categories ul {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 10px;
+      }
+      
+      .categories li {
+        margin: 0 5px;
+      }
+      
+      .product-img {
+        height: 250px;
+      }
+      
+      .logo-image {
+        height: 35px;
+      }
+      
+      .brand-name {
+        font-size: 1.1rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .product-img {
+        height: 200px;
+      }
+      
+      .logo-image {
+        height: 30px;
+      }
+      
+      .brand-name {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <nav class="navbar navbar-expand-lg navbar-pink sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <img src="images/Logo.png" alt="QuynhNinhShop Logo" class="logo-image">
+        <span class="brand-name">QuynhNinhShop</span>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Trang chủ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="san-pham.html">Sản phẩm</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Liên hệ</a>
+          </li>
+        </ul>
+        
+        <div class="d-flex align-items-center">
+          <button class="btn btn-outline-light btn-sm me-3" data-bs-toggle="modal" data-bs-target="#authModal">
+            <i class="fas fa-user me-1"></i>Tài khoản
+          </button>
+          
+          <a href="cart.html" class="btn btn-light cart-btn position-relative">
+            <i class="fas fa-shopping-bag"></i> Giỏ hàng
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+              0
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Menu danh mục -->
+  <div class="categories">
+    <div class="container">
+      <ul>
+        <li><a href="#" class="active" data-category="all">Tất cả</a></li>
+        <li><a href="#" data-category="dam">ĐẦM</a></li>
+        <li><a href="#" data-category="ao">ÁO</a></li>
+        <li><a href="#" data-category="quan">QUẦN</a></li>
+        <li><a href="#" data-category="chan-vay">CHÂN VÁY</a></li>
+        <li><a href="#" data-category="ao-khoac">ÁO KHOÁC</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PRODUCTS SECTION -->
+  <section class="container py-4">
+    <h2 class="section-title">Sản Phẩm Nổi Bật</h2>
+    
+    <div class="row" id="productsContainer">
+      <!-- Sản phẩm ĐẦM -->
+      <div class="col-md-3" data-category="dam">
+        <div class="product-card">
+          <img src="https://pos.nvncdn.com/4ef0bf-108661/ps/20250301_YOD0GJ9YgV.jpeg?v=1740762329" 
+          class="product-img" alt="Đầm cổ U nhỏ phối sơ mi, chân xếp ly">
+          <div class="card-body">
+            <h5 class="product-name">Đầm cổ U nhỏ phối sơ mi, chân xếp ly</h5>
+            <p class="product-price">1.050.000đ</p>
+            <button class="btn btn-pink w-100 btn-add-to-cart"
+            data-name="Đầm cổ U nhỏ phối sơ mi, chân xếp ly" 
+            data-price="1050000" 
+            data-image="https://pos.nvncdn.com/4ef0bf-108661/ps/20250301_YOD0GJ9YgV.jpeg?v=1740762329">
+              Mua hàng
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3" data-category="dam">
+        <div class="product-card">
+          <img src="https://pos.nvncdn.com/4ef0bf-108661/ps/Dam-co-tron-phoi-ao-roi-chan-do.jpg?v=1759480055" 
+          class="product-img" alt="Đầm cổ dày vắt, chân xếp ly">
+          <div class="card-body">
+            <h5 class="product-name">Đầm cổ dày vắt, chân xếp ly</h5>
+            <p class="product-price">695.000đ</p>
+            <button class="btn btn-pink w-100 btn-add-to-cart"
+            data-name="Đầm cổ dày vắt, chân xếp ly" 
+            data-price="695000" 
+            data-image="https://pos.nvncdn.com/4ef0bf-108661/ps/Dam-co-tron-phoi-ao-roi-chan-do.jpg?v=1759480055">
+              Mua hàng
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3" data-category="dam">
+        <div class="product-card">
+          <img src="https://pos.nvncdn.com/4ef0bf-108661/ps/Dam-co-tron-phoi-ao-roi-chan-do-to.jpg?v=1759385979" 
+          class="product-img" alt="Đầm cổ tròn túi ốp phối kim sa">
+          <div class="card-body">
+            <h5 class="product-name">Đầm cổ tròn túi ốp phối kim sa</h5>
+            <p class="product-price">795.000đ</p>
+            <button class="btn btn-pink w-100 btn-add-to-cart" 
+            data-name="Đầm cổ tròn túi ốp phối kim sa" 
+            data-price="795000" data-image="https://pos.nvncdn.com/4ef0bf-108661/ps/Dam-co-tron-phoi-ao-roi-chan-do-to.jpg?v=1759385979">
+              Mua hàng
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3" data-category="dam">
+        <div class="product-card">
+          <img src="https://pos.nvncdn.com/4ef0bf-108661/ps/Dam-co-leo-sat-nach-chan-xep-ly.jpg?v=1758782231" 
+          class="product-img" alt="Đầm cổ đúc phối kè chân xếp ly">
+          <div class="card-body">
+            <h5 class="product-name">Đầm cổ đúc phối kè chân xếp ly</h5>
+            <p class="product-price">790.000đ</p>
+            <button class="btn btn-pink w-100 btn-add-to-cart" 
+            data-name="Đầm cổ đúc phối kè chân xếp ly" 
+            data-price="790000" 
+            data-image="https://pos.nvncdn.com/4ef0bf-108661/ps/Dam-co-leo-sat-nach-chan-xep-ly.jpg?v=1758782231">
+              Mua hàng
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sản phẩm ÁO -->
+      <div class="col-md-3" data-category="ao">
+        <div class="product-card">
+          <img src="https://dongphuchaianh.vn/wp-content/uploads/2021/12/ao-so-mi-nu-form-rong-trang.jpg"
+          class="product-img" alt="Áo sơ mi nữ form rộng">
+          <div class="card-body">
+            <h5 class="product-name">Áo sơ mi nữ form rộng</h5>
+            <p class="product-price">350.000đ</p>
+            <button class="btn btn-pink w-100 btn-add-to-cart"
+            data-name="Áo sơ mi nữ form rộng" 
+            data-price="350000" 
+            data-image="https://dongphuchaianh.vn/wp-content/uploads/2021/12/ao-so-mi-nu-form-rong-trang.jpg">
+              Mua hàng
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3" data-category="ao">
+        <div class="product-card">
+          <img src="https://pos.nvncdn.com/4ef0bf-108661/ps/Ao-so-mi-croptop-co-duc.jpg?v=1758785179"
+          class="product-img" alt="Áo sơ mi croptop cổ đức">
+          <div class="card-body">
+            <h5 class="product-name">Áo sơ mi croptop cổ đức</h5>
+            <p class="product-price">450,000đ</p>
+            <button class="btn btn-pink w-100 btn-add-to-cart" 
+            data-name="Áo sơ mi croptop cổ đức" 
+            data-price="450000"
+            data-image="https://pos.nvncdn.com/4ef0bf-108661/ps/Ao-so-mi-croptop-co-duc.jpg?v=1758785179">
+              Mua hàng
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3" data-category="ao">
+        <div class="product-card">
+          <img src="https://pos.nvncdn.com/4ef0bf-108661/ps/Ao-so-mi-co-beo-mullet.jpg?v=1755746324"
+          class="product-img" alt="Áo sơ mi cổ bèo mullet">
+          <div class="card-body">
+            <h5 class="product-name">Áo sơ mi cổ mullet</h5>
+            <p class="product-price">595.000đ</p>
+            <button class="btn btn-pink w-100 btn-add-to-cart" 
+            data-name="Áo sơ mi cổ mullet" 
+            data-price="595000"
+            data-image="https://pos.nvncdn.com/4ef0bf-108661/ps/Ao-so-mi-co-beo-mullet.jpg?v=1755746324">
+              Mua hàng
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-category="ao">
+        <div class="product-card">
+          <img src="https://pos.nvncdn.com/4ef0bf-108661/ps/Ao-so-mi-dang-suong-co-2-la.jpg?v=1757067655"
+          class="product-img" alt="Áo sơ mi dáng suông cổ 2 lá">
+          <div class="card-body">
+            <h5 class="product-name">Áo sơ mi dáng suông cổ 2 lá</h5>
+            <p class="product-price">455.000đ</p>
+            <button class="btn btn-pink w-100 btn-add-to-cart" 
+            data-name="Áo sơ mi dáng suông cổ 2 lá" 
+            data-price="455000"
+            data-image="https://pos.nvncdn.com/4ef0bf-108661/ps/Ao-so-mi-dang-suong-co-2-la.jpg?v=1757067655">
+              Mua hàng
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sản phẩm QUẦN -->
+      <div class="col-md-3" data-category="quan">
+        <div class="product-card">
+          <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkq22hoydm962e" 
+          class="product-img" alt="Quần jeans ống rộng">
+          <div class="card-body">
+            <h5 class="product-name">Quần jeans ống rộng</h5>
+            <p class="product-price">420,000đ</p>
+            <button class="btn btn-pink w-100 btn-add-to-cart" data-name="Quần jeans ống rộng" data-price="420000" data-image="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkq22hoydm962e">
+              Mua hàng
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3" data-category="quan">
+        <div class="product-card">
+          <img src="https://pos.nvncdn.com/4ef0bf-108661/ps/Quan-ong-rong-2-ly-bung-cap-thap.jpg?v=1758783340" 
+          class="product-img" alt="Quần ống rộng 2 ly bụng, cạp thấp nữ">
+          <div class="card-body">
+            <h5 class="product-name">Quần ống rộng 2 ly bụng, cạp thấp nữ</h5>
+            <p class="product-price">280,000đ</p>
+            <button class="btn btn-pink w-100 btn-add-to-cart" 
+            data-name="Quần ống rộng 2 ly bụng, cạp thấp nữ" data-price="280000" 
+            data-image="https://pos.nvncdn.com/4ef0bf-108661/ps/Quan-ong-rong-2-ly-bung-cap-thap.jpg?v=1758783340">
+              Mua hàng
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sản phẩm CHÂN VÁY -->
+      <div class="col-md-3" data-category="chan-vay">
+        <div class="product-card">
+          <img src="https://cdn.kkfashion.vn/12670-large_default/chan-vay-chu-a-dang-dai-qua-goi-cv04-09.jpg"
+          class="product-img" alt="Chân váy chữ A">
+          <div class="card-body">
+            <h5 class="product-name">Chân váy chữ A</h5>
+            <p class="product-price">290,000đ</p>
+            <button class="btn btn-pink w-100 btn-add-to-cart" data-name="Chân váy chữ A" data-price="290000" data-image="https://cdn.kkfashion.vn/12670-large_default/chan-vay-chu-a-dang-dai-qua-goi-cv04-09.jpg">
+              Mua hàng
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3" data-category="chan-vay">
+        <div class="product-card">
+          <img src="https://pos.nvncdn.com/4ef0bf-108661/ps/20250228_SRQJXikg8C.jpeg?v=1740761925"
+          class="product-img" alt="Chân váy 2 tầng đan dây">
+          <div class="card-body">
+            <h5 class="product-name">Chân váy đồ 2 tầng đan dây</h5>
+            <p class="product-price">350,000đ</p>
+            <button class="btn btn-pink w-100 btn-add-to-cart" data-name="Chân váy 2 tầng đan dây" 
+            data-price="350000" 
+            data-image="https://pos.nvncdn.com/4ef0bf-108661/ps/20250228_SRQJXikg8C.jpeg?v=1740761925">
+              Mua hàng
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sản phẩm ÁO KHOÁC -->
+      <div class="col-md-3" data-category="ao-khoac">
+        <div class="product-card">
+          <img src="https://sakurafashion.vn/upload/sanpham/large/712854121-ao-khoac-blazer-nu-6.jpg" 
+          class="product-img" alt="Áo khoác blazer">
+          <div class="card-body">
+            <h5 class="product-name">Áo khoác blazer</h5>
+            <p class="product-price">750,000đ</p>
+            <button class="btn btn-pink w-100 btn-add-to-cart" data-name="Áo khoác blazer" data-price="750000" data-image="https://sakurafashion.vn/upload/sanpham/large/712854121-ao-khoac-blazer-nu-6.jpg">
+              Mua hàng
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-category="ao-khoac">
+        <div class="product-card">
+          <img src="https://cf.shopee.vn/file/e2ef70d2a3f9cf3ba0b40577a1df5304" 
+          class="product-img" alt="Áo khoác len">
+          <div class="card-body">
+            <h5 class="product-name">Áo khoác len</h5>
+            <p class="product-price">750,000đ</p>
+            <button class="btn btn-pink w-100 btn-add-to-cart" data-name="Áo khoác len" data-price="750000" data-image="https://cf.shopee.vn/file/e2ef70d2a3f9cf3ba0b40577a1df5304">
+              Mua hàng
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-pink py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="text-pink fw-bold">QuynhNinhShop</h5>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="text-pink fw-bold">Liên kết nhanh</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-decoration-none text-dark">Trang chủ</a></li>
+            <li><a href="san-pham.html" class="text-decoration-none text-dark">Sản phẩm</a></li>
+            <li><a href="contact.html" class="text-decoration-none text-dark">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-pink fw-bold">Thông tin liên hệ</h5>
+          <p><i class="fas fa-map-marker-alt me-2 text-pink"></i> Thanh Xuân, Hà Nội</p>
+          <p><i class="fas fa-phone me-2 text-pink"></i> 0336118717</p>
+          <p><i class="fas fa-envelope me-2 text-pink"></i> contact@quynhninhshop.com</p>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 QuynhNinhShop. Tất cả quyền được bảo lưu.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL ĐĂNG NHẬP/ĐĂNG KÝ -->
+  <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="authModalLabel">Chào mừng đến QuynhNinhShop 💖</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-pills nav-justified mb-4" id="authTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="login-tab" data-bs-toggle="pill" data-bs-target="#login" type="button" role="tab">
+                <i class="fas fa-sign-in-alt me-2"></i>Đăng nhập
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="register-tab" data-bs-toggle="pill" data-bs-target="#register" type="button" role="tab">
+                <i class="fas fa-user-plus me-2"></i>Đăng ký
+              </button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="authTabContent">
+            <!-- ĐĂNG NHẬP -->
+            <div class="tab-pane fade show active" id="login" role="tabpanel">
+              <form id="loginForm">
+                <div class="mb-3">
+                  <label for="loginEmail" class="form-label">Email hoặc Số điện thoại</label>
+                  <input type="text" class="form-control" id="loginEmail" placeholder="Nhập email hoặc số điện thoại" required>
+                </div>
+                <div class="mb-3">
+                  <label for="loginPassword" class="form-label">Mật khẩu</label>
+                  <input type="password" class="form-control" id="loginPassword" placeholder="Nhập mật khẩu" required>
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="rememberMe">
+                  <label class="form-check-label" for="rememberMe">Ghi nhớ đăng nhập</label>
+                </div>
+                <button type="submit" class="btn btn-pink w-100">
+                  <i class="fas fa-sign-in-alt me-2"></i>Đăng nhập
+                </button>
+              </form>
+              <div class="text-center mt-3">
+                <a href="#" class="text-muted">Quên mật khẩu?</a>
+              </div>
+            </div>
+
+            <!-- ĐĂNG KÝ -->
+            <div class="tab-pane fade" id="register" role="tabpanel">
+              <form id="registerForm">
+                <div class="mb-3">
+                  <label for="registerName" class="form-label">Họ và tên</label>
+                  <input type="text" class="form-control" id="registerName" placeholder="Nhập họ tên của bạn" required>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="registerEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="registerEmail" placeholder="Nhập email" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="registerPhone" class="form-label">Số điện thoại</label>
+                    <input type="tel" class="form-control" id="registerPhone" placeholder="Nhập số điện thoại" required>
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="registerPassword" class="form-label">Mật khẩu</label>
+                  <input type="password" class="form-control" id="registerPassword" placeholder="Tạo mật khẩu (ít nhất 6 ký tự)" required>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="registerConfirmPassword" class="form-label">Xác nhận mật khẩu</label>
+                  <input type="password" class="form-control" id="registerConfirmPassword" placeholder="Nhập lại mật khẩu" required>
+                </div>
+                
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                  <label class="form-check-label" for="agreeTerms">
+                    Tôi đồng ý với <a href="#" class="text-pink">điều khoản dịch vụ</a>
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-pink w-100">
+                  <i class="fas fa-user-plus me-2"></i>Đăng ký tài khoản
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Lọc sản phẩm theo danh mục
+    document.querySelectorAll('.categories a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Cập nhật trạng thái active
+        document.querySelectorAll('.categories a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+        
+        const category = this.getAttribute('data-category');
+        const products = document.querySelectorAll('#productsContainer .col-md-3');
+        
+        products.forEach(product => {
+          if (category === 'all' || product.getAttribute('data-category') === category) {
+            product.style.display = 'block';
+          } else {
+            product.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    // Xử lý thêm vào giỏ hàng
+    document.querySelectorAll('.btn-add-to-cart').forEach(button => {
+      button.addEventListener('click', function() {
+        const productName = this.getAttribute('data-name');
+        const productPrice = parseInt(this.getAttribute('data-price'));
+        const productImage = this.getAttribute('data-image');
+        
+        // Tạo ID sản phẩm đơn giản
+        const productId = Date.now();
+        
+        // Lấy giỏ hàng hiện tại từ localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+        const existingItem = cart.find(item => item.name === productName);
+        
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          // Thêm sản phẩm mới vào giỏ hàng
+          cart.push({
+            id: productId,
+            name: productName,
+            price: productPrice,
+            image: productImage,
+            quantity: 1
+          });
+        }
+        
+        // Lưu giỏ hàng vào localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        // Cập nhật số lượng giỏ hàng
+        updateCartCount();
+        
+        // Hiển thị thông báo
+        alert(`Đã thêm "${productName}" vào giỏ hàng!`);
+        
+        // Chuyển hướng đến trang giỏ hàng
+        window.location.href = 'cart.html';
+      });
+    });
+
+    // Cập nhật số lượng giỏ hàng
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+      document.getElementById('cart-count').textContent = totalItems;
+    }
+    
+    // Cập nhật khi trang được tải
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCartCount();
+    });
+  </script>
+</body>
+</html>
